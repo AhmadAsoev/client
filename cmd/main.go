@@ -31,6 +31,11 @@ func main() {
 	//AddClient adding client into db
 	router.HandleFunc("/addClient", handleFunc.AddClient).Methods(POST)
 
+	//GetAllClients get all clients
+	router.HandleFunc("/allClients", handleFunc.GetAllClients).Methods(GET)
+	//GetById get from clients from id
+	router.HandleFunc("/client/{id}", handleFunc.GetById).Methods(GET)
+
 	log.Println("server is running")
 	if err := http.ListenAndServe(port, router); err != nil {
 		log.Fatal("Server is not ready!")

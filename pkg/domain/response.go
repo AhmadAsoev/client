@@ -7,9 +7,9 @@ import (
 )
 
 type Response struct {
-	Code    int    `json:"code"`
-	Error   string `json:"error,omitempty"`
-	Message string `json:"message,omitempty"`
+	Code    int         `json:"code"`
+	Error   string      `json:"error,omitempty"`
+	Message interface{} `json:"message,omitempty"`
 }
 
 func (r Response) Send(w http.ResponseWriter, LabelPath string) {
