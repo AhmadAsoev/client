@@ -10,8 +10,9 @@ import (
 )
 
 const (
-	GET  = "GET"
-	POST = "POST"
+	GET    = "GET"
+	POST   = "POST"
+	DELETE = "DELETE"
 )
 
 func main() {
@@ -35,6 +36,9 @@ func main() {
 	router.HandleFunc("/allClients", handleFunc.GetAllClients).Methods(GET)
 	//GetById get from clients from id
 	router.HandleFunc("/client/{id}", handleFunc.GetById).Methods(GET)
+
+	//DeleteById
+	router.HandleFunc("/client/{id}", handleFunc.DeleteById).Methods(DELETE)
 
 	log.Println("server is running")
 	if err := http.ListenAndServe(port, router); err != nil {
