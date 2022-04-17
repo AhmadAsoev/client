@@ -40,6 +40,11 @@ func main() {
 	//DeleteById
 	router.HandleFunc("/client/{id}", handleFunc.DeleteById).Methods(DELETE)
 
+	//GetByName
+	router.HandleFunc("/clientBy/{name}", handleFunc.GetByName).Methods(GET)
+
+	router.HandleFunc("/client/{id}", handleFunc.UpdateByID).Methods("PUT")
+
 	log.Println("server is running")
 	if err := http.ListenAndServe(port, router); err != nil {
 		log.Fatal("Server is not ready!")
